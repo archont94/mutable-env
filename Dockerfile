@@ -1,4 +1,12 @@
 FROM ubuntu:14.04
+
+# labels
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/archont94/mutable-env"
+
 ENV WORKSPACE_DIR "/mutable-env/"
 ENV DEBIAN_FRONTEND noninteractive
 

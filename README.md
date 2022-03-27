@@ -17,8 +17,10 @@ First, pull Docker image:
 docker pull archont94/mutable-env:latest
 ```
 
-Download mutable-env.sh and save it inside /usr/local/bin:
-	wget -O /usr/local/bin/mutable-env.sh https://raw.githubusercontent.com/archont94/mutable-env/master/mutable-env.sh && chmod +x /usr/local/bin/mutable-env.sh
+Download mutable-env.sh and save it inside `/usr/local/bin`:
+```bash
+wget -O /usr/local/bin/mutable-env.sh https://raw.githubusercontent.com/archont94/mutable-env/master/mutable-env.sh && chmod +x /usr/local/bin/mutable-env.sh
+```
 
 Change directory to [eurorack](https://github.com/pichenettes/eurorack) (to init it properly: `git clone https://github.com/pichenettes/eurorack.git && cd eurorack && git submodule init && git submodule update`)
 

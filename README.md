@@ -13,7 +13,9 @@ This Dockerfile and this shellscript create a Docker container configured with a
 ## Usage
 
 First, pull Docker image:
-	docker pull archont94/mutable-env:latest
+```bash
+docker pull archont94/mutable-env:latest
+```
 
 Download mutable-env.sh and save it inside /usr/local/bin:
 	wget -O /usr/local/bin/mutable-env.sh https://raw.githubusercontent.com/archont94/mutable-env/master/mutable-env.sh && chmod +x /usr/local/bin/mutable-env.sh

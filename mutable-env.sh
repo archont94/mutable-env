@@ -16,7 +16,7 @@ function find_device()
   echo "--device ${dev_bus}"
 }
 
-docker_args=(run)
+docker_args=(run --rm)
 docker_args+=( $(find_device "ST-LINK") )
 docker_args+=(-v $(pwd):/workdir)
 docker_args+=(mutable-env:latest)

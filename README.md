@@ -63,6 +63,19 @@ shutdown command invoked
 archont@docker:~/dockers/mutable-env/eurorack$
 ```
 
+If you want to just build binaries you can set `SKIP_PROGRAMMING` variable, i.e. `SKIP_PROGRAMMING=true mutable-env make -f yarns/makefile bin`
+
+Example output:
+```bash
+archont@docker:~/dockers/mutable-env/eurorack$ SKIP_PROGRAMMING=true ../mutable-env.sh make -f yarns/makefile bin
+cat build/yarns/just_intonation_processor.d build/yarns/layout_configurator.d build/yarns/midi_handler.d build/yarns/multi.d build/yarns/part.d build/yarns/resources.d build/yarns/settings.d build/yarns/storage_manager.d build/yarns/ui.d build/yarns/voice.d build/yarns/yarns.d build/yarns/channel_leds.d build/yarns/dac.d build/yarns/display.d build/yarns/encoder.d build/yarns/gate_output.d build/yarns/midi_io.d build/yarns/switches.d build/yarns/system.d build/yarns/random.d build/yarns/bootloader_utils.d build/yarns/system_clock.d build/yarns/core_cm3.d build/yarns/system_stm32f10x.d build/yarns/misc.d build/yarns/stm32f10x_adc.d build/yarns/stm32f10x_bkp.d build/yarns/stm32f10x_can.d build/yarns/stm32f10x_crc.d build/yarns/stm32f10x_dac.d build/yarns/stm32f10x_dbgmcu.d build/yarns/stm32f10x_dma.d build/yarns/stm32f10x_exti.d build/yarns/stm32f10x_flash.d build/yarns/stm32f10x_fsmc.d build/yarns/stm32f10x_gpio.d build/yarns/stm32f10x_i2c.d build/yarns/stm32f10x_iwdg.d build/yarns/stm32f10x_pwr.d build/yarns/stm32f10x_rcc.d build/yarns/stm32f10x_rtc.d build/yarns/stm32f10x_sdio.d build/yarns/stm32f10x_spi.d build/yarns/stm32f10x_tim.d build/yarns/stm32f10x_usart.d build/yarns/stm32f10x_wwdg.d build/yarns/startup_stm32f10x_md.d > build/yarns/depends.mk
+/usr/local/arm-4.8.3/bin/arm-none-eabi-objcopy -O binary build/yarns/yarns.elf build/yarns/yarns.bin
+"docker "${docker_args[@]}"" command filed with exit code 0.
+archont@docker:~/dockers/mutable-env/eurorack$ ls -lash build/yarns/yarns.bin
+60K -rwxr-xr-x 1 root root 60K Feb 22 12:38 build/yarns/yarns.bin
+```
+
+
 ## Different programmers/serial devices
 
 In order to use different programmer than ST-LINK, modify your script in `/usr/local/bin/mutable-env.sh`, i.e. you can add replace ST-LINK line with i.e. `docker_args+=( $(find_device "FT232") )`.

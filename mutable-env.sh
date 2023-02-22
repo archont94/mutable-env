@@ -17,8 +17,8 @@ function find_device()
 }
 
 docker_args=(run --rm)
-docker_args+=( $(find_device "ST-LINK") )
+[[ -z "${SKIP_PROGRAMMING}" ]] && docker_args+=( $(find_device "ST-LINK") )
 docker_args+=(-v $(pwd):/workdir)
-docker_args+=(mutable-env:latest)
+docker_args+=(archont94/mutable-env:latest)
 docker_args+=(bash -c "cd /workdir && $*")
 docker "${docker_args[@]}"
